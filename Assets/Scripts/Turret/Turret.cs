@@ -39,7 +39,7 @@ public class Turret : MonoBehaviour
 
         if (timer >= respawnTime)
         {   
-            GameObject bullet = Instantiate(BulletPrefab, transform);            
+            GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(new Vector3 (0, 0, 0)));            
             bullet.transform.LookAt(Player);
 
             timer = 0f;
