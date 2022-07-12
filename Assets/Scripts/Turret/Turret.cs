@@ -20,23 +20,36 @@ public class Turret : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        Debug.Log("¸ñÇ¥ Æ÷Âø");
-
         if (other.tag != "Player")
         {
             return;
         }
 
+        Debug.Log("¸ñÇ¥ Æ÷Âø");
+        gameObject.transform.LookAt(Player);
+
         if (timer >= respawnTime)
         {
-            GameObject bullet = Instantiate(BulletPrefab, transform);
+            GameObject bullet = Instantiate(BulletPrefab);
             bullet.transform.LookAt(Player);
 
             timer = 0f;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Player")
+        {
+            return;
+        }
+
+        
     }
 }

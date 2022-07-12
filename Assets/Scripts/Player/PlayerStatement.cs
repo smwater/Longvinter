@@ -6,10 +6,10 @@ public class PlayerStatement : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Bullet")
-        {
-            Die();
-        }
+        //if(other.tag == "Bullet")
+        //{
+        //    Die();
+        //}
     }
 
     public void Die()
